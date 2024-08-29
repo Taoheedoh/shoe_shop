@@ -5,6 +5,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Column(
+        children: [
+          Text('Shoes Collections', style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 35,
+          ),),
+        ],
+      ),
+    );
   }
 }
