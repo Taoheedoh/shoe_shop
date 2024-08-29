@@ -9,10 +9,26 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Text('Shoes\nCollections', style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-            ),),
+            Row(children: [
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Text(
+                  'Shoes\nCollections',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search',
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                ),
+              ),
+            ]),
           ],
         ),
       ),
