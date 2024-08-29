@@ -6,13 +6,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Column(
-        children: [
-          Text('Shoes Collections', style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 35,
-          ),),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Text('Shoes\nCollections', style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            ),),
+          ],
+        ),
       ),
     );
   }
