@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+  final List<String> flitters = ['All', 'Addidas', 'Nike', 'Bata'];
 
   @override
   Widget build(BuildContext context) {
-  const border =   OutlineInputBorder(
+    const border = OutlineInputBorder(
       borderSide: BorderSide(
         color: Color.fromRGBO(225, 225, 225, 1),
       ),
@@ -13,11 +14,11 @@ class HomePage extends StatelessWidget {
         left: Radius.circular(50),
       ),
     );
-    return  const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            Row(children: [
+            const Row(children: [
               Padding(
                 padding: EdgeInsets.all(20),
                 child: Text(
@@ -39,7 +40,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+             
             ]),
+             ListView.builder(
+                itemCount: flitters.length,
+                itemBuilder: (context, index) {
+                  final fliter = flitters[index];
+                  return Chip(label: Text(fliter),);
+                },
+              ),
           ],
         ),
       ),
