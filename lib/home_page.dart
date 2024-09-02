@@ -52,7 +52,10 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Chip(
                       label: Text(filter),
-                      padding:const EdgeInsets.all(8),
+                      labelStyle:const TextStyle(
+                        fontSize: 16,
+                      ),
+                      padding:const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadiusDirectional.horizontal(
                           start: Radius.circular(20),
