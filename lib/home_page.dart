@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
-  final List<String> flitters = ['All', 'Addidas', 'Nike', 'Bata'];
+  final List<String> filters = ['All', 'Addidas', 'Nike', 'Bata'];
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +40,30 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-             
             ]),
-             ListView.builder(
-                itemCount: flitters.length,
+            SizedBox(
+              height: 80,
+              child: ListView.builder(
+                itemCount: filters.length,
+                scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  final fliter = flitters[index];
-                  return Chip(label: Text(fliter),);
+                  final filter = filters[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Chip(
+                      label: Text(filter),
+                      padding:const EdgeInsets.all(8),
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadiusDirectional.horizontal(
+                          start: Radius.circular(20),
+                          end: Radius.circular(20),
+                        ),
+                      ),
+                    ),
+                  );
                 },
               ),
+            ),
           ],
         ),
       ),
