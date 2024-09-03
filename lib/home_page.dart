@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final List<String> filters = ['All', 'Addidas', 'Nike', 'Bata'];
+  late String selectedFilter;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedFilter = filters[0];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,21 +63,28 @@ class HomePage extends StatelessWidget {
                   final filter = filters[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Chip(
-                      backgroundColor: const Color.fromRGBO(245, 247, 249, 1),
-                      side: const BorderSide(
-                        color: Color.fromRGBO(245, 247, 249, 1),
-                      ),
-                      label: Text(filter),
-                      labelStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 10),
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadiusDirectional.horizontal(
-                          start: Radius.circular(20),
-                          end: Radius.circular(20),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedFilter = filter;
+                        });
+                      },
+                      child: Chip(
+                        backgroundColor: selectedFilter == filter ? Theme.of(context).colorScheme.primary :const Color.fromRGBO(245, 247, 249, 1),
+                        side: const BorderSide(
+                          color: Color.fromRGBO(245, 247, 249, 1),
+                        ),
+                        label: Text(filter),
+                        labelStyle: const TextStyle(
+                          fontSize: 16,
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadiusDirectional.horizontal(
+                            start: Radius.circular(20),
+                            end: Radius.circular(20),
+                          ),
                         ),
                       ),
                     ),
