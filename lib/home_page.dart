@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoe_shop/global_variables.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -70,7 +71,9 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       child: Chip(
-                        backgroundColor: selectedFilter == filter ? Theme.of(context).colorScheme.primary :const Color.fromRGBO(245, 247, 249, 1),
+                        backgroundColor: selectedFilter == filter
+                            ? Theme.of(context).colorScheme.primary
+                            : const Color.fromRGBO(245, 247, 249, 1),
                         side: const BorderSide(
                           color: Color.fromRGBO(245, 247, 249, 1),
                         ),
@@ -91,6 +94,12 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
+            ),
+            ListView.builder(
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final product = products[index];
+              },
             ),
           ],
         ),
